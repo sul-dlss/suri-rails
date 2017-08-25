@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :identifiers, only: %i[index show create]
 
   # legacy routes
-  post '/namespaces/druid/identifiers' => 'identifiers#create'
-  get '/namespaces' => 'ok_computer/ok_computer#index'
+  post '/suri2/namespaces/druid/identifiers' => 'identifiers#create'
+  get '/suri2/namespaces' => 'ok_computer/ok_computer#index'
 end

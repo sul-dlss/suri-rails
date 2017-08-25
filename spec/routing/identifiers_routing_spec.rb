@@ -19,11 +19,11 @@ RSpec.describe IdentifiersController, type: :routing do
 
   describe 'legacy routes' do
     it 'routes old identifier minting path' do
-      expect(post: '/namespaces/druid/identifiers').to route_to('identifiers#create')
+      expect(post: '/suri2/namespaces/druid/identifiers').to route_to('identifiers#create')
     end
 
     it 'routes old monitoring path' do
-      expect(get: '/namespaces').to route_to('ok_computer/ok_computer#index')
+      expect(get: '/suri2/namespaces').to route_to('ok_computer/ok_computer#index')
     end
   end
 end
