@@ -1,24 +1,39 @@
-# README
+[![Build Status](https://travis-ci.org/sul-dlss/suri_rails.svg?branch=master)](https://travis-ci.org/sul-dlss/suri_rails)
+[![Coverage Status](https://coveralls.io/repos/sul-dlss/suri_rails/badge.svg)](https://coveralls.io/r/sul-dlss/suri_rails)
+[![Dependency Status](https://gemnasium.com/sul-dlss/suri_rails.svg)](https://gemnasium.com/sul-dlss/suri_rails)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# SURI
 
-Things you may want to cover:
+SURI is the Stanford Libraries' unique identifier minting system. It mints unique DRUIDs. 
 
-* Ruby version
+## Requirements
 
-* System dependencies
+1. Ruby (2.4.1 or greater)
 
-* Configuration
+## Installation
 
-* Database creation
+Clone the repository
 
-* Database initialization
+    $ git clone git@github.com:sul-dlss/suri_rails.git
 
-* How to run the test suite
+Change directories into the app and install dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+    $ bundle install
 
-* Deployment instructions
+Start the development server
 
-* ...
+    $ rails s
+
+## Testing
+
+The test suite (with RuboCop style enforcement) will be run with the default rake task (also run on travis)
+
+    $ rake
+
+The specs can be run without RuboCop enforcement
+
+    $ rake spec
+
+The RuboCop style enforcement can be run without running the tests
+
+    $ rake rubocop
