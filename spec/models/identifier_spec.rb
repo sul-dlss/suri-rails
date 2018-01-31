@@ -11,7 +11,7 @@ RSpec.describe Identifier, type: :model do
   end
   describe '.mint' do
     it 'creates objects with unique identifiers' do
-      expect { Identifier.mint }.to change { Identifier.count }.by(1)
+      expect { Identifier.mint }.to change(Identifier, :count).by(1)
     end
 
     it 'eventually gives up if it cannot generate a unique one' do
