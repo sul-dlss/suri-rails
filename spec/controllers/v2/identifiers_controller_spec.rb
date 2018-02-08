@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe IdentifiersController, type: :controller do
+RSpec.describe V2::IdentifiersController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # IdentifiersController. Be sure to keep this updated too.
@@ -37,7 +37,7 @@ RSpec.describe IdentifiersController, type: :controller do
         post :create, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('text/plain')
-        expect(response.location).to eq(identifier_url(Identifier.last))
+        expect(response.location).to eq(v2_identifier_url(Identifier.last))
         expect(response.body).to eq Identifier.last.identifier
       end
     end

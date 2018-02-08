@@ -2,24 +2,24 @@
 
 require 'rails_helper'
 
-RSpec.describe IdentifiersController, type: :routing do
-  describe 'routing' do
+RSpec.describe V2::IdentifiersController, type: :routing do
+  describe 'v2 routing' do
     it 'routes to #index' do
-      expect(get: '/identifiers').to route_to('identifiers#index')
+      expect(get: 'v2/identifiers').to route_to('v2/identifiers#index')
     end
 
     it 'routes to #show' do
-      expect(get: '/identifiers/1').to route_to('identifiers#show', id: '1')
+      expect(get: 'v2/identifiers/1').to route_to('v2/identifiers#show', id: '1')
     end
 
     it 'routes to #create' do
-      expect(post: '/identifiers').to route_to('identifiers#create')
+      expect(post: 'v2/identifiers').to route_to('v2/identifiers#create')
     end
   end
 
   describe 'legacy routes' do
     it 'routes old identifier minting path' do
-      expect(post: '/suri2/namespaces/druid/identifiers').to route_to('identifiers#create')
+      expect(post: '/suri2/namespaces/druid/identifiers').to route_to('v2/identifiers#create')
     end
 
     it 'routes old monitoring path' do
