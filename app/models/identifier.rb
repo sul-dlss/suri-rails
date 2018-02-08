@@ -5,6 +5,10 @@ require 'druid_minter'
 class Identifier < ApplicationRecord
   MAX_RETRIES = 10_000
 
+  def to_param
+    identifier
+  end
+
   # Create a new Identifier with a guaranteed-unique identifier field
   #
   # @return [Identifier]

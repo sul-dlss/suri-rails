@@ -21,4 +21,12 @@ RSpec.describe Identifier, type: :model do
       expect(Identifier.mint).to eq false
     end
   end
+
+  describe '#to_param' do
+    subject { identifier.to_param }
+
+    let(:identifier) { Identifier.mint }
+
+    it { is_expected.to match(/[[:alpha:]]{2}[[:digit:]]{3}[[:alpha:]]{2}[[:digit:]]{4}/) }
+  end
 end
