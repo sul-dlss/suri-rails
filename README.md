@@ -4,7 +4,7 @@
 
 # SURI
 
-SURI is the Stanford Libraries' unique identifier minting system. It mints unique DRUIDs. 
+SURI is the Stanford Libraries' unique identifier minting system. It mints unique DRUIDs.
 
 ## Requirements
 
@@ -37,3 +37,27 @@ The specs can be run without RuboCop enforcement
 The RuboCop style enforcement can be run without running the tests
 
     $ rake rubocop
+
+## Docker
+
+Create the database:
+```
+docker-compose run web rake db:create db:migrate
+```
+
+Start the servers:
+```
+docker-compose up
+```
+
+Shell into the image:
+```
+docker run -it suri bash
+```
+
+## Using the API
+
+Mint a DRUID:
+```
+curl -X POST http://localhost:3000/identifiers
+```
