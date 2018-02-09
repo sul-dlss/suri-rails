@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class IdentifiersController < ActionController::API
+class IdentifiersController < ApplicationController
   # GET /identifiers
   # GET /identifiers.json
   def index
