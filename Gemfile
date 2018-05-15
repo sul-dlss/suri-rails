@@ -21,7 +21,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
-  gem 'coveralls'
+  gem 'coveralls', '~> 0.8.21'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-rspec'
