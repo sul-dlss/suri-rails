@@ -29,7 +29,7 @@ jobs:
       # Upgrade bundler
       - run:
           name: Install Bundler
-          command: gem install bundler
+          command: gem install bundler -v 2.0.2
 
       # Which version of bundler?
       - run:
