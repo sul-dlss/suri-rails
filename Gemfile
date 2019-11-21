@@ -25,6 +25,7 @@ group :development, :test do
   gem 'coveralls'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'

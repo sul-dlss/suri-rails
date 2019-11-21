@@ -28,7 +28,7 @@ jobs:
 
       # Upgrade bundler
       - run:
-          name: Install Bundler
+          name: Install bundler
           command: gem install bundler -v 2.0.2
 
       # Which version of bundler?
@@ -44,7 +44,7 @@ jobs:
             - suri-rails-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install dependencies
           command: bundle check || bundle install
 
       # Store bundle cache
@@ -60,16 +60,15 @@ jobs:
             chmod +x ./cc-test-reporter
 
       - run:
-          name: Test prepare
+          name: Set up database
           command: bin/rails db:test:prepare
 
       - run:
-          name: Check styles using rubocop
+          name: Run code linter & style checker
           command: bundle exec rubocop
 
-      # Run rspec in parallel
       - run:
-          name: Run rspec in parallel
+          name: Run test suite in parallel
           command: |
             ./cc-test-reporter before-build
             bundle exec rspec --format RspecJunitFormatter \
