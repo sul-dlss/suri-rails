@@ -22,7 +22,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  gem 'coveralls'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
@@ -30,7 +29,6 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'simplecov'
 end
 
 group :development do
