@@ -15,6 +15,7 @@ class Identifier < ApplicationRecord
         id = DruidMinter.generate
         Identifier.transaction do
           next if Identifier.where(identifier: id).any?
+
           throw :id, Identifier.create!(attributes.merge(identifier: id))
         end
 

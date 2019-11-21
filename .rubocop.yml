@@ -1,26 +1,27 @@
-require: rubocop-rspec
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 2.4
   Exclude:
-    - 'bin/**/*'
-    - 'db/**/*'
-    - 'config/**/*'
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
 
-Rails:
-  Enabled: true
-
 Metrics/LineLength:
-  Max: 120
+  Max: 117
 
 Metrics/BlockLength:
   Exclude:
-    - spec/**/*.rb
+    - 'spec/**/*.rb'
 
 Style/Documentation:
   Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/**/*'
 
 RSpec/MultipleExpectations:
   Max: 5
