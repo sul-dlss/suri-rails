@@ -16,4 +16,7 @@ rescue LoadError
   end
 end
 
-task default: %i[spec rubocop]
+# remove default rspec task
+task(:default).clear
+
+task default: %i[rubocop spec]

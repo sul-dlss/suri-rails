@@ -8,7 +8,7 @@ SURI is the Stanford Libraries' unique identifier minting system. It mints uniqu
 
 ## Requirements
 
-1. Ruby (2.4.1 or greater)
+1. Ruby (2.6.4 or greater)
 
 ## Installation
 
