@@ -12,7 +12,7 @@ RSpec.describe IdentifiersController, type: :controller do
     it 'returns a success response' do
       identifier = Identifier.mint
       get :index, params: {}, session: valid_session
-      expect(response).to be_success
+      expect(response).to have_http_status(:ok)
       expect(JSON.parse(response.body)).to include hash_including('identifier' => identifier.identifier)
     end
   end
@@ -21,7 +21,7 @@ RSpec.describe IdentifiersController, type: :controller do
     it 'returns a success response' do
       identifier = Identifier.mint
       get :show, params: { id: identifier.to_param }, session: valid_session
-      expect(response).to be_success
+      expect(response).to have_http_status(:ok)
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe IdentifiersController, type: :controller do
       it 'renders a text response with the new identifier' do
         post :create, session: valid_session
         expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('text/plain')
+        expect(response.media_type).to eq('text/plain')
         expect(response.location).to eq(identifier_url(Identifier.last))
         expect(response.body).to eq Identifier.last.identifier
       end
