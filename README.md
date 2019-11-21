@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/sul-dlss/suri_rails.svg?branch=master)](https://travis-ci.org/sul-dlss/suri_rails)
-[![Coverage Status](https://coveralls.io/repos/sul-dlss/suri_rails/badge.svg)](https://coveralls.io/r/sul-dlss/suri_rails)
+[![Build Status](https://circleci.com/gh/sul-dlss/suri_rails.svg?style=svg)](https://circleci.com/gh/sul-dlss/suri_rails)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/8c69820c161e14d45bc9/test_coverage)](https://codeclimate.com/github/sul-dlss/suri_rails/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8c69820c161e14d45bc9/maintainability)](https://codeclimate.com/github/sul-dlss/suri_rails/maintainability)
 [![Docker image](https://images.microbadger.com/badges/image/suldlss/suri-rails.svg)](https://microbadger.com/images/suldlss/suri-rails "Get your own image badge on microbadger.com")
 
 # SURI
