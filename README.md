@@ -26,7 +26,7 @@ Start the development server
 
 ## Testing
 
-The test suite (with RuboCop style enforcement) will be run with the default rake task (also run on travis)
+The test suite (with RuboCop style enforcement) will be run with the default rake task (also run on CI).
 
     $ rake
 
@@ -40,11 +40,13 @@ The RuboCop style enforcement can be run without running the tests
 
 ## Building for Docker
 
-```
-docker build -t suldlss/suri-rails:latest
+```shell
+$ docker build -t suldlss/suri-rails:latest .
 ```
 
 Then run as:
+```shell
+$ docker run -d -p 127.0.0.1:3002:3000 suldlss/suri-rails:latest
 ```
-docker run -d -p 127.0.0.1:3002:3000 suldlss/suri-rails:latest
-```
+
+Note that CI is configured to automatically update the image hosted on DockerHub on every commit to `master`.
