@@ -12,6 +12,8 @@ RUN bundle install
 
 COPY . .
 
+RUN bundle exec rails db:setup
+
 LABEL maintainer="Justin Coyne <jcoyne@justincoyne.com>"
 
 CMD puma -C config/puma.rb
