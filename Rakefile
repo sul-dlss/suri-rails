@@ -12,7 +12,7 @@ begin
   RuboCop::RakeTask.new
 rescue LoadError
   desc 'Unable to load RuboCop.'
-  task :rubocop do
+  task rubocop: :environment do
   end
 end
 
