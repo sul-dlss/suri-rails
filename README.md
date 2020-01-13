@@ -5,7 +5,9 @@
 
 # SURI
 
-SURI is the Stanford Libraries' unique identifier minting system. It mints unique DRUIDs.
+SURI is the Stanford Libraries' Unique Resource Identifier minting system. It mints unique DRUIDs.
+
+This is currently used for running specs;  we still use https://github.com/sul-dlss/suri2 in deployed environments.
 
 ## Requirements
 
