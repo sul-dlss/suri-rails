@@ -26,60 +26,44 @@ jobs:
     steps:
       - checkout
 
-      # Upgrade bundler
       - run:
-          name: Install bundler
+          name: Install/Upgrade bundler
           command: gem install bundler -v 2.0.2
-
-      # Which version of bundler?
       - run:
           name: Which bundler?
           command: bundle -v
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
             - suri-rails-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - suri-rails-dependencies-
-
       - run:
           name: Install dependencies
           command: bundle check || bundle install
-
-      # Store bundle cache
       - save_cache:
           key: dor-services-app-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
       - run:
-          name: Install Code Climate Test Reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-
-      - run:
-          name: Set up database
-          command: bin/rails db:test:prepare
-
-      - run:
           name: Run code linter & style checker
           command: bundle exec rubocop
 
       - run:
-          name: Run test suite in parallel
+          name: Set up database
+          command: bin/rails db:test:prepare
+      - run:
+          name: Setup Code Climate test-reporter
           command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
             ./cc-test-reporter before-build
-            bundle exec rspec --format RspecJunitFormatter \
-                              --out test_results/rspec.xml \
-                              --format progress \
-                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
-
-      # Save test results for timing analysis
-      - store_test_results:
-          path: test_results
+      - run:
+          name: rspec
+          command: bundle exec rspec
+      - run:
+          name: upload test coverage report to Code Climate
+          command: ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
 
   build-image:
     executor: docker-publisher
