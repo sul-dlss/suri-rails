@@ -116,7 +116,11 @@ jobs:
 workflows:
   version: 2
 
-  build:
+  test:
+    jobs:
+    - test
+
+build:
     jobs:
     - build-image:
         filters:
