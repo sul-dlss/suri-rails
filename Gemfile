@@ -27,7 +27,7 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'simplecov'
+  gem 'simplecov', '~> 0.17.1' # 0.18 breaks reporting https://github.com/codeclimate/test-reporter/issues/418
 end
 
 group :development do
