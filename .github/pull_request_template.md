@@ -2,7 +2,7 @@
 
 
 
-## Was the documentation (README, DevOpsDocs, wiki, openapi.json) updated?
+## Was the documentation (README, DevOpsDocs, wiki, openapi.yml) updated?
 
 
 
