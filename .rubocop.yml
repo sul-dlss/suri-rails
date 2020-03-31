@@ -9,7 +9,7 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 117
 
 Metrics/BlockLength:
@@ -25,3 +25,12 @@ Style/MixinUsage:
 
 RSpec/MultipleExpectations:
   Max: 5
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
