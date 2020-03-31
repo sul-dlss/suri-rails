@@ -11,7 +11,7 @@ This is currently used for running specs;  we still use https://github.com/sul-d
 
 ## Requirements
 
-1. Ruby (2.6.4 or greater)
+1. Ruby (2.7.0 or greater)
 
 ## Installation
 
