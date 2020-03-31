@@ -4,9 +4,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'pg'
 gem 'rails', '~> 6.0.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # Added in Rails 5.2 to speed up boot times
@@ -16,7 +15,6 @@ gem 'okcomputer'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
@@ -24,7 +22,9 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  # Use sqlite3 as the database for Active Record
   gem 'simplecov', '~> 0.17.1' # 0.18 breaks reporting https://github.com/codeclimate/test-reporter/issues/418
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
