@@ -42,7 +42,8 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # set :ssh_options, verify_host_key: :secure
 
 # capistrano/passenger wouldn't restart Passenger without this
-set :passenger_environment_variables, 'PASSENGER_INSTANCE_REGISTRY_DIR' => '/var/run'
+# not needed for RPM based passenger.
+# set :passenger_environment_variables, 'PASSENGER_INSTANCE_REGISTRY_DIR' => '/var/run'
 
 # update shared_configs before restarting app
 before 'deploy:restart', 'shared_configs:update'
