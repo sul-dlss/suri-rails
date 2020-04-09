@@ -17,12 +17,6 @@ Style/Documentation:
     - 'config/application.rb'
     - 'db/migrate/20170825145538_create_identifiers.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'spec/rails_helper.rb'
-
 # Offense count: 49
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

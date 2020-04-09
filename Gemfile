@@ -3,14 +3,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'pg'
-gem 'rails', '~> 6.0.1'
-# Use Puma as the app server
-gem 'puma', '~> 4.3'
-# Added in Rails 5.2 to speed up boot times
-gem 'bootsnap'
+gem 'bootsnap' # Added in Rails 5.2 to speed up boot times
+gem 'committee'
 gem 'okcomputer'
+gem 'pg'
+gem 'puma', '~> 4.3' # Use Puma as the app server
+gem 'rails', '~> 6.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

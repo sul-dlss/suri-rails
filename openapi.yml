@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  description: API for Stanford Uniform Resource Identifier (SURI) service
+  version: 1.0.0
+  title: SURI API
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'https://sul-suri-{env}.stanford.edu'
+    description: Production service
+    variables:
+      env:
+        default: prod
+  - url: 'https://sul-suri-{env}.stanford.edu'
+    description: Staging service
+    variables:
+      env:
+        default: stage
+  - url: 'https://sul-suri-{env}.stanford.edu'
+    description: Quality Assurance service
+    variables:
+      env:
+        default: qa
+tags:
+  - name: identifiers
+    description: Identifier operations
+  - name: legacy
+    description: Legacy endpoints
+paths:
+  /identifiers:
+    post:
+      tags:
+        - identifiers
+      summary: Create a new identifier
+      description: ''
+      operationId: 'identifiers#create'
+      parameters:
+        - name: quantity
+          in: query
+          description: 'number of identifiers to mint (note: this argument is not yet implemented since there are apparently zero clients using it)'
+          required: false
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Identifier created successfully
+          headers:
+            location:
+              description: location of identifier
+              schema:
+                type: string
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BareDruid'
+        '500':
+          description: Internal server error
+    get:
+      tags:
+        - identifiers
+      summary: List all identifiers
+      description: ''
+      operationId: 'identifiers#index'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BareDruid'
+  /identifiers/{id}:
+    get:
+      tags:
+        - identifiers
+      summary: Show an identifier
+      description: ''
+      operationId: 'identifiers#show'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BareDruid'
+        '404':
+          description: Identifier not found
+      parameters:
+        - name: id
+          in: path
+          description: druid to return
+          required: true
+          schema:
+            $ref: '#/components/schemas/BareDruid'
+  /suri2/namespaces/druids/identifiers:
+    post:
+      tags:
+        - identifiers
+        - legacy
+      summary: Create a new identifier
+      description: ''
+      deprecated: true
+      parameters:
+        - name: quantity
+          in: query
+          description: 'number of identifiers to mint (note: this argument is not yet implemented since there are apparently zero clients using it)'
+          required: false
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Identifier created successfully
+          headers:
+            location:
+              description: location of identifier
+              schema:
+                type: string
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BareDruid'
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    BareDruid:
+      description: Digital Repository Unique Identifier (DRUID) without `druid:` prefix
+      type: string
+      pattern: '^[b-df-hjkmnp-tv-z]{2}[0-9]{3}[b-df-hjkmnp-tv-z]{2}[0-9]{4}$'
+      example: 'bc123df4567'

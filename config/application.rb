@@ -18,9 +18,37 @@ require 'action_controller/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+class JSONAPIError < Committee::ValidationError
+  def error_body
+    {
+      errors: [
+        { status: id, detail: message }
+      ]
+    }
+  end
+
+  def render
+    [
+      status,
+      { 'Content-Type' => 'application/vnd.api+json' },
+      [JSON.generate(error_body)]
+    ]
+  end
+end
+
 module Suri
   class Application < Rails::Application
     config.load_defaults 6.0
+
+    # Stay out of business of validating gem-provided routes (e.g., OKComputer)
+    accept_proc = proc { |request| request.path.include?('/identifiers') }
+    config.middleware.use Committee::Middleware::RequestValidation, schema_path: 'openapi.yml',
+                                                                    strict: true,
+                                                                    error_class: JSONAPIError,
+                                                                    accept_request_filter: accept_proc
+
+    # TODO: we can uncomment this at a later date to ensure we are passing back valid responses
+    config.middleware.use Committee::Middleware::ResponseValidation, schema_path: 'openapi.yml'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
