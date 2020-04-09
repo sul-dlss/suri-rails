@@ -8,36 +8,13 @@ require:
 AllCops:
   TargetRubyVersion: 2.4
   Exclude:
+    - 'bin/*' # these are auto-generated (bundler binstubs)
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
-
-Metrics/MethodLength:
-  Exclude:
-    - 'bin/bundle'
-
-Metrics/CyclomaticComplexity:
-  Exclude:
-    - 'bin/bundle'
-
-Metrics/PerceivedComplexity:
-  Exclude:
-    - 'bin/bundle'
-
-Metrics/AbcSize:
-  Exclude:
-    - 'bin/bundle'
-
-Layout/LineLength:
-  Exclude:
-    - 'bin/bundle'
-
-Style/MixinUsage:
-  Exclude:
-    - 'bin/**/*'
 
 RSpec/MultipleExpectations:
   Max: 5
