@@ -259,7 +259,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   rspec_junit_formatter
-  rubocop
+  rubocop (~> 0.81.0)
   rubocop-performance
   rubocop-rails
   rubocop-rspec

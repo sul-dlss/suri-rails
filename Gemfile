@@ -18,7 +18,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.81.0'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
