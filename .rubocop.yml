@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 require:
   - rubocop-performance
   - rubocop-rails
@@ -9,15 +11,9 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
 
-Layout/LineLength:
-  Max: 117
-
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
-
-Style/Documentation:
-  Enabled: false
 
 Style/MixinUsage:
   Exclude:
@@ -33,4 +29,10 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
   Enabled: true
