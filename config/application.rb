@@ -47,8 +47,12 @@ module Suri
                                                                     error_class: JSONAPIError,
                                                                     accept_request_filter: accept_proc
 
-    # TODO: we can uncomment this at a later date to ensure we are passing back valid responses
-    config.middleware.use Committee::Middleware::ResponseValidation, schema_path: 'openapi.yml'
+    # TODO: we can uncomment this once we can change all consumers of SURI to
+    # expect a JSON array as a return type, rather than plain-text. The
+    # Committee gem does not currently allow response validation for non-JSON
+    # responses.
+    #
+    # config.middleware.use Committee::Middleware::ResponseValidation, schema_path: 'openapi.yml'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

@@ -1,19 +1,27 @@
-FROM ruby:2.7.0-alpine
+FROM ruby:2.7.1-alpine
 
+LABEL maintainer="Stanford Libraries Infrastructure Team <dlss-infrastructure-team@lists.stanford.edu>"
 
-RUN apk update && apk add build-base sqlite-dev tzdata git
+RUN apk add --update --no-cache \
+  build-base \
+  git \
+  postgresql-dev \
+  postgresql-client \
+  libxml2-dev \
+  libxslt-dev \
+  tzdata
 
 RUN mkdir /app
 WORKDIR /app
 
+RUN gem update --system && \
+  gem install bundler && \
+  bundle config build.nokogiri --use-system-libraries
+
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler -v 2.0.2
-RUN bundle install
+
+RUN bundle config set without 'production' && bundle install
 
 COPY . .
 
-RUN bundle exec rails db:setup
-
-LABEL maintainer="Justin Coyne <jcoyne@justincoyne.com>"
-
-CMD puma -C config/puma.rb
+CMD ["./docker/invoke.sh"]

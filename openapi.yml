@@ -51,11 +51,15 @@ paths:
               schema:
                 type: string
           content:
-            text/plain:
+            text/plain: # This is why we can't enable Committee response validation. See TODO in config/application.rb
               schema:
                 $ref: '#/components/schemas/BareDruid'
         '500':
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     get:
       tags:
         - identifiers
@@ -70,7 +74,10 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/BareDruid'
+                  type: object
+                  properties:
+                    identifier:
+                      $ref: '#/components/schemas/BareDruid'
   /identifiers/{id}:
     get:
       tags:
@@ -84,9 +91,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BareDruid'
+                $ref: '#/components/schemas/Identifier'
         '404':
           description: Identifier not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - name: id
           in: path
@@ -94,7 +105,7 @@ paths:
           required: true
           schema:
             $ref: '#/components/schemas/BareDruid'
-  /suri2/namespaces/druids/identifiers:
+  /suri2/namespaces/druid/identifiers:
     post:
       tags:
         - identifiers
@@ -130,3 +141,48 @@ components:
       type: string
       pattern: '^[b-df-hjkmnp-tv-z]{2}[0-9]{3}[b-df-hjkmnp-tv-z]{2}[0-9]{4}$'
       example: 'bc123df4567'
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        title:
+          type: string
+          description: 'a short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem.'
+          example: Invalid Attribute
+        detail:
+          type: string
+          description: a human-readable explanation specific to this occurrence of the problem.
+          example: Title must contain at least three characters.
+        source:
+          type: object
+          properties:
+            pointer:
+              type: string
+              example: /data/attributes/title
+    Identifier:
+      description: an ID record stored in the database
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 123
+        identifier:
+          $ref: '#/components/schemas/BareDruid'
+        created_by:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+        updated_at:
+          type: string
+      required:
+        - id
+        - identifier
+        - created_at
+        - updated_at
