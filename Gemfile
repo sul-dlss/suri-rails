@@ -20,9 +20,7 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  # Use sqlite3 as the database for Active Record
   gem 'simplecov', '~> 0.17.1' # 0.18 breaks reporting https://github.com/codeclimate/test-reporter/issues/418
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
