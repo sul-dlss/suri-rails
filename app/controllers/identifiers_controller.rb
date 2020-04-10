@@ -13,6 +13,7 @@ class IdentifiersController < ApplicationController
     @identifier = Identifier.find_by!(identifier: params[:id])
     render json: @identifier
   rescue ActiveRecord::RecordNotFound
+    # NOTE: 404s are not Honeybadger-worthy
     render build_error("Identifier not found: #{params[:id]}", :not_found)
   end
 
@@ -23,7 +24,9 @@ class IdentifiersController < ApplicationController
     if @identifier
       render plain: @identifier.identifier, status: :created, location: @identifier
     else
-      render build_error('Unable to mint a druid', :internal_server_error)
+      error_message = 'Unable to mint a druid'
+      Honeybadger.notify(error_message)
+      render build_error(error_message, :internal_server_error)
     end
   end
 

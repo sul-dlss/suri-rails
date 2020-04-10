@@ -55,6 +55,7 @@ RSpec.describe 'Identifiers', type: :request do
     context 'with a broken minter' do
       before do
         allow(Identifier).to receive(:mint).and_return(nil)
+        allow(Honeybadger).to receive(:notify)
       end
 
       it 'renders an error' do
@@ -65,6 +66,7 @@ RSpec.describe 'Identifiers', type: :request do
           'title' => 'Unable to mint a druid',
           'detail' => 'Unable to mint a druid'
         )
+        expect(Honeybadger).to have_received(:notify).once
       end
     end
   end
