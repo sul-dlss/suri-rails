@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'bootsnap' # Added in Rails 5.2 to speed up boot times
 gem 'committee'
+gem 'honeybadger'
 gem 'okcomputer'
 gem 'pg'
 gem 'puma', '~> 4.3' # Use Puma as the app server
