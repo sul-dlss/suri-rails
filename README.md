@@ -6,7 +6,7 @@
 
 # SURI
 
-SURI is the Stanford Unique Resource Identifier service. It mints unique identifiers (e.g., DRUIDs).
+SURI is **the** Stanford Unique Resource Identifier service. It mints unique identifiers (e.g., DRUIDs).
 
 SURI has an [OpenAPI 3.0 spec](http://spec.openapis.org/oas/v3.0.2) that documents the API in [openapi.yml](openapi.yml). You can browse the generated documentation at [http://sul-dlss.github.io/suri-rails/](http://sul-dlss.github.io/suri-rails/).
 
