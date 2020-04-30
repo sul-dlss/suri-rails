@@ -64,3 +64,4 @@ Note that CI is configured to automatically update the image hosted on DockerHub
 
     $ docker build -t suldlss/suri-rails:latest .
     $ docker push suldlss/suri-rails:latest
+
