@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.13.0'
+lock '~> 3.14'
 
 set :application, 'suri'
 set :repo_url, 'https://github.com/sul-dlss/suri-rails.git'
