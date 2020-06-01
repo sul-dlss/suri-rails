@@ -14,34 +14,33 @@ class IdentifiersController < ApplicationController
     render json: @identifier
   rescue ActiveRecord::RecordNotFound
     # NOTE: 404s are not Honeybadger-worthy
-    render build_error("Identifier not found: #{params[:id]}", :not_found)
+    render build_error(title: "Identifier not found: #{params[:id]}", status: :not_found)
   end
 
   # POST /identifiers
   def create
     @identifier = Identifier.mint
 
-    if @identifier
-      render plain: @identifier.identifier, status: :created, location: @identifier
-    else
-      error_message = 'Unable to mint a druid'
-      Honeybadger.notify(error_message)
-      render build_error(error_message, :internal_server_error)
-    end
+    render plain: @identifier.identifier, status: :created, location: @identifier
+  rescue StandardError => e
+    error_prefix = 'Unable to mint identifier'
+    error_message = "#{e.class}: #{e.message}"
+    Honeybadger.notify("#{error_prefix}: #{error_message}")
+    render build_error(title: error_prefix, detail: error_message, status: :internal_server_error)
   end
 
   private
 
   # rubocop:disable Metrics/MethodLength
   # JSON-API error response
-  def build_error(msg, status)
+  def build_error(title:, detail: nil, status:)
     {
       json: {
         errors: [
           {
-            "status": Rack::Utils::SYMBOL_TO_STATUS_CODE[status].to_s,
-            "title": msg,
-            "detail": msg
+            status: Rack::Utils::SYMBOL_TO_STATUS_CODE[status].to_s,
+            title: title,
+            detail: detail || title
           }
         ]
       },

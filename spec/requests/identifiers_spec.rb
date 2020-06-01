@@ -63,8 +63,8 @@ RSpec.describe 'Identifiers', type: :request do
         expect(response).to have_http_status(:internal_server_error)
         expect(JSON.parse(response.body)['errors'].first).to include(
           'status' => '500',
-          'title' => 'Unable to mint a druid',
-          'detail' => 'Unable to mint a druid'
+          'title' => 'Unable to mint identifier',
+          'detail' => 'NoMethodError: undefined method `identifier\' for nil:NilClass'
         )
         expect(Honeybadger).to have_received(:notify).once
       end
@@ -98,8 +98,8 @@ RSpec.describe 'Identifiers', type: :request do
         expect(response).to have_http_status(:internal_server_error)
         expect(JSON.parse(response.body)['errors'].first).to include(
           'status' => '500',
-          'title' => 'Unable to mint a druid',
-          'detail' => 'Unable to mint a druid'
+          'title' => 'Unable to mint identifier',
+          'detail' => 'NoMethodError: undefined method `identifier\' for nil:NilClass'
         )
       end
     end
