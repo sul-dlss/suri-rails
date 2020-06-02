@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# This script imports the CSV data that was extracted from the legacy Oracle database.
+#
+# Usage:
+#   ./bin/import-legacy-workflow <pathToCSV>
+
+puts 'Loading environment...'
+require File.expand_path('../config/environment', __dir__)
+
+require 'csv'
+
+CSV.open(ARGV[0], headers: :first_row).each_slice(10_000) do |batch|
+  values = batch.map do |line|
+    legacy = line.to_h
+
+    # Renamed field
+    created_at = legacy.delete('created')
+
+    # We must provide updated_at, or it will display as the import time in the lifecycle.
+    legacy.merge(created_at: created_at, updated_at: created_at)
+  end
+  Identifier.import(values.compact)
+end
