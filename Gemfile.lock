@@ -45,6 +45,8 @@ GEM
     activerecord (6.0.3.1)
       activemodel (= 6.0.3.1)
       activesupport (= 6.0.3.1)
+    activerecord-import (1.0.5)
+      activerecord (>= 3.2)
     activerecord-oracle_enhanced-adapter (6.0.2)
       activerecord (~> 6.0.0)
       ruby-plsql (>= 0.6.0)
@@ -256,6 +258,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   activerecord-oracle_enhanced-adapter
   bootsnap
   byebug

@@ -12,7 +12,9 @@ gem 'puma', '~> 4.3' # Use Puma as the app server
 gem 'rails', '~> 6.0.1'
 
 group :production do
+  # we can remove this section after we've migrated the data 
   gem 'ruby-oci8'
+  gem 'activerecord-import'
   gem 'activerecord-oracle_enhanced-adapter'
 end
 

@@ -6,7 +6,7 @@
 # before running: gem install ruby-oci8
 #
 # Usage:
-#   ruby export-legacy-data <user> <password> <database> > identifiers.csv
+#   export-legacy-data <user> <password> <database> > identifiers.csv
 
 require 'ruby-oci8'
 require 'csv'
