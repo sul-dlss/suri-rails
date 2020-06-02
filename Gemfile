@@ -11,6 +11,11 @@ gem 'pg'
 gem 'puma', '~> 4.3' # Use Puma as the app server
 gem 'rails', '~> 6.0.1'
 
+group :production do
+  gem 'ruby-oci8'
+  gem 'activerecord-oracle_enhanced-adapter'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
