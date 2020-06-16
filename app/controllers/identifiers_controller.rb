@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 class IdentifiersController < ApplicationController
-  # GET /identifiers
-  def index
-    @identifiers = Identifier.all
-
-    render json: @identifiers
-  end
-
   # GET /identifiers/1
   def show
     @identifier = Identifier.find_by!(identifier: params[:id])

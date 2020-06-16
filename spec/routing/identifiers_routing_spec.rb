@@ -4,10 +4,6 @@ require 'rails_helper'
 
 RSpec.describe IdentifiersController, type: :routing do
   describe 'routing' do
-    it 'routes to #index' do
-      expect(get: '/identifiers').to route_to('identifiers#index')
-    end
-
     it 'routes to #show' do
       expect(get: '/identifiers/1').to route_to('identifiers#show', id: '1')
     end
