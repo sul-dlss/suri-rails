@@ -5,14 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Identifiers', type: :request do
   let!(:identifier) { Identifier.mint }
 
-  describe 'GET #index' do
-    it 'returns a success response' do
-      get '/identifiers'
-      expect(response).to have_http_status(:ok)
-      expect(JSON.parse(response.body)).to include hash_including('identifier' => identifier.identifier)
-    end
-  end
-
   describe 'GET #show' do
     context 'when identifier is minted' do
       it 'returns a success response' do
