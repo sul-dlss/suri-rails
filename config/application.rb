@@ -45,7 +45,8 @@ module Suri
     config.middleware.use Committee::Middleware::RequestValidation, schema_path: 'openapi.yml',
                                                                     strict: true,
                                                                     error_class: JSONAPIError,
-                                                                    accept_request_filter: accept_proc
+                                                                    accept_request_filter: accept_proc,
+                                                                    parse_response_by_content_type: false
 
     # TODO: we can uncomment this once we can change all consumers of SURI to
     # expect a JSON array as a return type, rather than plain-text. The
