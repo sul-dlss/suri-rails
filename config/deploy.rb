@@ -40,9 +40,6 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 
 # honeybadger_env otherwise defaults to rails_env
 set :honeybadger_env, fetch(:stage)
-# See https://github.com/honeybadger-io/honeybadger-ruby/issues/129 &
-# https://github.com/honeybadger-io/honeybadger-ruby/blob/7eea24a47d44aed663e315be970e501b7cf092fc/vendor/capistrano-honeybadger/README.md
-set :honeybadger_server, primary(:app)
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
