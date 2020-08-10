@@ -92,7 +92,7 @@ GEM
       json_schema (~> 0.14, >= 0.14.3)
       openapi_parser (>= 0.11.1)
       rack (>= 1.5)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     crass (1.0.6)
     diff-lcs (1.4.4)
     dlss-capistrano (3.9.0)
