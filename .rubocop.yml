@@ -9,12 +9,21 @@ AllCops:
   TargetRubyVersion: 2.4
   Exclude:
     - 'bin/*' # these are auto-generated (bundler binstubs)
+    - 'config/initializers/filter_parameter_logging.rb' # auto-generated
+    - 'config/initializers/new_framework_defaults_6_1.rb' # auto-generated
+    - 'config/initializers/permissions_policy.rb' # auto-generated
+    - 'config/puma.rb' # auto-generated
+    - 'config/spring.rb' # auto-generated
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
+
+Rails/FilePath:
+  Exclude:
+    - 'config/environments/development.rb' # auto-generated
 
 RSpec/MultipleExpectations:
   Max: 5
