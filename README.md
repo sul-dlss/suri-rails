@@ -2,7 +2,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ea20a9aca677b13896a0/test_coverage)](https://codeclimate.com/github/sul-dlss/suri-rails/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ea20a9aca677b13896a0/maintainability)](https://codeclimate.com/github/sul-dlss/suri-rails/maintainability)
 [![Docker image](https://images.microbadger.com/badges/image/suldlss/suri-rails.svg)](https://microbadger.com/images/suldlss/suri-rails "Get your own image badge on microbadger.com")
-[![OpenAPI Validator](http://validator.swagger.io/validator?url=https://raw.githubusercontent.com/sul-dlss/suri-rails/master/openapi.yml)](http://validator.swagger.io/validator/debug?url=https://raw.githubusercontent.com/sul-dlss/suri-rails/master/openapi.yml)
+[![OpenAPI Validator](http://validator.swagger.io/validator?url=https://raw.githubusercontent.com/sul-dlss/suri-rails/main/openapi.yml)](http://validator.swagger.io/validator/debug?url=https://raw.githubusercontent.com/sul-dlss/suri-rails/main/openapi.yml)
 
 # SURI
 
@@ -60,7 +60,7 @@ Spin up the application and its database:
 
 ## Updating Docker Image
 
-Note that CI is configured to automatically update the image hosted on DockerHub on every commit to `master`. If you want to build and push an image manually, run:
+Note that CI is configured to automatically update the image hosted on DockerHub on every commit to `main`. If you want to build and push an image manually, run:
 
     $ docker build -t suldlss/suri-rails:latest .
     $ docker push suldlss/suri-rails:latest
