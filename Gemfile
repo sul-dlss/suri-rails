@@ -8,7 +8,7 @@ gem 'committee'
 gem 'honeybadger'
 gem 'okcomputer'
 gem 'pg'
-gem 'puma', '~> 4.3' # Use Puma as the app server
+gem 'puma', '~> 5.5' # Use Puma as the app server
 gem 'rails', '~> 6.1.0'
 
 group :development, :test do
