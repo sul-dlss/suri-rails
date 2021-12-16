@@ -6,7 +6,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.7
   Exclude:
     - 'bin/*' # these are auto-generated (bundler binstubs)
     - 'config/initializers/filter_parameter_logging.rb' # auto-generated
@@ -27,21 +27,5 @@ Rails/FilePath:
 
 RSpec/MultipleExpectations:
   Max: 5
-
 RSpec/ExampleLength:
-  Enabled: false
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
+  Max: 10

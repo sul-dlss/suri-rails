@@ -15,9 +15,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'rspec_junit_formatter'
-  gem 'rubocop', '~> 0.81.0'
+  gem 'rspec-rails'
+  gem 'rubocop', '~> 1.23'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
