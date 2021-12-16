@@ -2,7 +2,7 @@
 
 # Mint druid-like strings
 class DruidMinter
-  TRUNCATED_ALPHA = 'bcdfghjkmnpqrstvwxyz'.split('').freeze
+  TRUNCATED_ALPHA = 'bcdfghjkmnpqrstvwxyz'.chars.freeze
 
   # Generates a random ID
   # @return [String]
@@ -14,6 +14,6 @@ class DruidMinter
     2.times { id_arr << TRUNCATED_ALPHA.sample }
     4.times { id_arr << rand(0..9) }
 
-    id_arr.join('')
+    id_arr.join
   end
 end

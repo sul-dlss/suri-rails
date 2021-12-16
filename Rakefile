@@ -12,8 +12,7 @@ begin
   RuboCop::RakeTask.new
 rescue LoadError
   desc 'Unable to load RuboCop.'
-  task rubocop: :environment do
-  end
+  task rubocop: :environment
 end
 
 # remove default rspec task
