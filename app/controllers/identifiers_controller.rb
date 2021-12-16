@@ -26,7 +26,7 @@ class IdentifiersController < ApplicationController
 
   # rubocop:disable Metrics/MethodLength
   # JSON-API error response
-  def build_error(title:, detail: nil, status:)
+  def build_error(title:, status:, detail: nil)
     {
       json: {
         errors: [
