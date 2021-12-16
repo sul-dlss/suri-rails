@@ -9,7 +9,7 @@ gem 'honeybadger'
 gem 'okcomputer'
 gem 'pg'
 gem 'puma', '~> 5.5' # Use Puma as the app server
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 7.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
