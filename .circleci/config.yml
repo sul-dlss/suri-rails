@@ -7,12 +7,15 @@ parameters:
   ruby-version:
     type: string
     default: "3.0.3"
+  postgres-version:
+    type: string
+    default: "11.13"
 executors:
   docker-publisher:
     environment:
       IMAGE_NAME: suldlss/suri-rails
     docker:
-    - image: cimg/buildpack-deps:stretch
+    - image: cimg/base
 jobs:
   test:
     docker:
@@ -26,7 +29,7 @@ jobs:
           PGPASSWORD: sekret
           RAILS_ENV: test
           NOKOGIRI_USE_SYSTEM_LIBRARIES: true
-      - image: circleci/postgres:11
+      - image: 'cimg/postgres:<< pipeline.parameters.postgres-version >>'
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: suri
