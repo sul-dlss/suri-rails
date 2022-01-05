@@ -12,7 +12,7 @@ executors:
     environment:
       IMAGE_NAME: suldlss/suri-rails
     docker:
-    - image: circleci/buildpack-deps:stretch
+    - image: cimg/buildpack-deps:stretch
 jobs:
   test:
     docker:
