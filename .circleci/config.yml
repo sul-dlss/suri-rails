@@ -15,7 +15,7 @@ executors:
     environment:
       IMAGE_NAME: suldlss/suri-rails
     docker:
-    - image: cimg/base
+    - image: cimg/base:stable
 jobs:
   test:
     docker:
