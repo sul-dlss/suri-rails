@@ -10,8 +10,6 @@ SURI is the Stanford Unique Resource Identifier service. It mints unique identif
 
 SURI has an [OpenAPI 3.0 spec](http://spec.openapis.org/oas/v3.0.2) that documents the API in [openapi.yml](openapi.yml). You can browse the generated documentation at [http://sul-dlss.github.io/suri-rails/](http://sul-dlss.github.io/suri-rails/).
 
-NOTE: This is currently used for running specs; we still use https://github.com/sul-dlss/suri2 in deployed environments. This will replace suri2 in Q2 2020.
-
 ## Requirements
 
 1. Ruby (2.7.0 or greater)
