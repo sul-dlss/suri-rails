@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Identifiers', type: :request do
+RSpec.describe 'Identifiers' do
   let!(:identifier) { Identifier.mint }
 
   describe 'GET #show' do

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe IdentifiersController, type: :routing do
+RSpec.describe IdentifiersController do
   describe 'routing' do
     it 'routes to #show' do
       expect(get: '/identifiers/1').to route_to('identifiers#show', id: '1')
