@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Identifier, type: :model do
+RSpec.describe Identifier do
   describe '.create' do
     it 'enforces uniqueness of identifiers' do
       described_class.create(identifier: 'x')
