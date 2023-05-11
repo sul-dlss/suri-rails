@@ -32,13 +32,13 @@ class IdentifiersController < ApplicationController
         errors: [
           {
             status: Rack::Utils::SYMBOL_TO_STATUS_CODE[status].to_s,
-            title: title,
+            title:,
             detail: detail || title
           }
         ]
       },
       content_type: 'application/vnd.api+json',
-      status: status
+      status:
     }
   end
   # rubocop:enable Metrics/MethodLength
