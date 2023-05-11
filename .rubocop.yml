@@ -6,7 +6,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.2
   Exclude:
     - 'bin/*' # these are auto-generated (bundler binstubs)
     - 'config/initializers/filter_parameter_logging.rb' # auto-generated

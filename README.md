@@ -12,7 +12,7 @@ SURI has an [OpenAPI 3.0 spec](http://spec.openapis.org/oas/v3.0.2) that documen
 
 ## Requirements
 
-1. Ruby (2.7.0 or greater)
+1. Ruby (3.2.0 or greater)
 
 ## Installation
 
