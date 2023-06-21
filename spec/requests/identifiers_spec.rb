@@ -10,7 +10,7 @@ RSpec.describe 'Identifiers' do
       it 'returns a success response' do
         get "/identifiers/#{identifier.identifier.to_param}"
         expect(response).to have_http_status(:ok)
-        expect(JSON.parse(response.body)).to include('identifier' => identifier.identifier)
+        expect(response.parsed_body).to include('identifier' => identifier.identifier)
       end
     end
 
@@ -18,11 +18,14 @@ RSpec.describe 'Identifiers' do
       it 'returns a not found response' do
         get '/identifiers/bc123df4567'
         expect(response).to have_http_status(:not_found)
+        # response.parsed_body gives a string due to "Content-Type"=>"application/vnd.api+json; charset=utf-8"
+        # rubocop:disable Rails/ResponseParsedBody
         expect(JSON.parse(response.body)['errors'].first).to include(
           'status' => '404',
           'title' => 'Identifier not found: bc123df4567',
           'detail' => 'Identifier not found: bc123df4567'
         )
+        # rubocop:enable Rails/ResponseParsedBody
       end
     end
   end
@@ -53,11 +56,14 @@ RSpec.describe 'Identifiers' do
       it 'renders an error' do
         post '/identifiers'
         expect(response).to have_http_status(:internal_server_error)
+        # response.parsed_body gives a string due to "Content-Type"=>"application/vnd.api+json; charset=utf-8"
+        # rubocop:disable Rails/ResponseParsedBody
         expect(JSON.parse(response.body)['errors'].first).to include(
           'status' => '500',
           'title' => 'Unable to mint identifier',
           'detail' => 'NoMethodError: undefined method `identifier\' for nil:NilClass'
         )
+        # rubocop:enable Rails/ResponseParsedBody
         expect(Honeybadger).to have_received(:notify).once
       end
     end
@@ -88,11 +94,14 @@ RSpec.describe 'Identifiers' do
       it 'renders an error' do
         post '/suri2/namespaces/druid/identifiers'
         expect(response).to have_http_status(:internal_server_error)
+        # response.parsed_body gives a string due to "Content-Type"=>"application/vnd.api+json; charset=utf-8"
+        # rubocop:disable Rails/ResponseParsedBody
         expect(JSON.parse(response.body)['errors'].first).to include(
           'status' => '500',
           'title' => 'Unable to mint identifier',
           'detail' => 'NoMethodError: undefined method `identifier\' for nil:NilClass'
         )
+        # rubocop:enable Rails/ResponseParsedBody
       end
     end
   end
