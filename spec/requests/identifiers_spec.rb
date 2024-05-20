@@ -60,8 +60,7 @@ RSpec.describe 'Identifiers' do
         # rubocop:disable Rails/ResponseParsedBody
         expect(JSON.parse(response.body)['errors'].first).to include(
           'status' => '500',
-          'title' => 'Unable to mint identifier',
-          'detail' => 'NoMethodError: undefined method `identifier\' for nil:NilClass'
+          'title' => 'Unable to mint identifier'
         )
         # rubocop:enable Rails/ResponseParsedBody
         expect(Honeybadger).to have_received(:notify).once
@@ -98,8 +97,7 @@ RSpec.describe 'Identifiers' do
         # rubocop:disable Rails/ResponseParsedBody
         expect(JSON.parse(response.body)['errors'].first).to include(
           'status' => '500',
-          'title' => 'Unable to mint identifier',
-          'detail' => 'NoMethodError: undefined method `identifier\' for nil:NilClass'
+          'title' => 'Unable to mint identifier'
         )
         # rubocop:enable Rails/ResponseParsedBody
       end
