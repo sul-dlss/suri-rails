@@ -50,7 +50,7 @@ module Suri
                                                                     error_class: JSONAPIError,
                                                                     accept_request_filter: accept_proc,
                                                                     parse_response_by_content_type: false,
-                                                                    parameter_overwite_by_rails_rule: false
+                                                                    parameter_overwrite_by_rails_rule: false
 
     # TODO: we can uncomment this once we can change all consumers of SURI to
     # expect a JSON array as a return type, rather than plain-text. The
