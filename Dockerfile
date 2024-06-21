@@ -1,15 +1,11 @@
-FROM ruby:3.2.2-alpine
+FROM ruby:3.3.1-bookworm
 
 LABEL maintainer="Stanford Libraries Infrastructure Team <dlss-infrastructure-team@lists.stanford.edu>"
 
-RUN apk add --update --no-cache \
-  build-base \
-  git \
-  postgresql-dev \
-  postgresql-client \
-  libxml2-dev \
-  libxslt-dev \
-  tzdata
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+        postgresql-client postgresql-contrib libpq-dev \
+        libxml2-dev libxslt-dev git tzdata
 
 RUN mkdir /app
 WORKDIR /app
