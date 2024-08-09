@@ -32,7 +32,7 @@ Start the development server
 
 First, ensure the database container is spun up:
 
-    $ docker-compose up db # use -d to daemonize/run in background
+    $ docker compose up db # use -d to daemonize/run in background
 
 And if you haven't yet prepared the test database, run:
 
@@ -54,7 +54,7 @@ The RuboCop style enforcement can be run without running the tests
 
 Spin up the application and its database:
 
-    $ docker-compose up --build
+    $ docker compose up --build
 
 ## Updating Docker Image
 
