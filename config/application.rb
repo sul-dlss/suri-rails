@@ -2,9 +2,9 @@
 
 require_relative 'boot'
 
-# require "rails"
+# require 'rails'
 # Pick the frameworks you want:
-# require "active_model/railtie'"
+# require 'active_model/railtie'
 # require "active_job/railtie"
 require 'active_record/railtie'
 # require "active_storage/engine"
@@ -12,7 +12,7 @@ require 'action_controller/railtie'
 # require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require "action_text/engine"
-# require "action_view/railtie"
+# require 'action_view/railtie'
 # require "action_cable/engine"
 # require "rails/test_unit/railtie"
 
@@ -41,12 +41,13 @@ end
 module Suri
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.2
 
     # Stay out of business of validating gem-provided routes (e.g., OKComputer)
     accept_proc = proc { |request| request.path.include?('/identifiers') }
     config.middleware.use Committee::Middleware::RequestValidation, schema_path: 'openapi.yml',
                                                                     strict: true,
+                                                                    strict_reference_validation: true,
                                                                     error_class: JSONAPIError,
                                                                     accept_request_filter: accept_proc,
                                                                     parse_response_by_content_type: false,
@@ -59,6 +60,11 @@ module Suri
     #
     # config.middleware.use Committee::Middleware::ResponseValidation, schema_path: 'openapi.yml'
 
+    # Please, add to the `ignore` list any other `lib` subdirectories that do
+    # not contain `.rb` files, or that should not be reloaded or eager loaded.
+    # Common ones are `templates`, `generators`, or `middleware`, for example.
+    config.autoload_lib(ignore: %w[assets tasks])
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -66,5 +72,8 @@ module Suri
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Don't generate system test files.
+    config.generators.system_tests = nil
   end
 end
