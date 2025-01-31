@@ -18,7 +18,13 @@
 
 require 'simplecov'
 
-SimpleCov.start('rails')
+SimpleCov.start('rails') do
+  if ENV['CI']
+    require 'simplecov_json_formatter'
+
+    formatter SimpleCov::Formatter::JSONFormatter
+  end
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
