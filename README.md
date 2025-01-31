@@ -1,6 +1,5 @@
 [![Build Status](https://circleci.com/gh/sul-dlss/suri-rails.svg?style=svg)](https://circleci.com/gh/sul-dlss/suri-rails)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ea20a9aca677b13896a0/test_coverage)](https://codeclimate.com/github/sul-dlss/suri-rails/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ea20a9aca677b13896a0/maintainability)](https://codeclimate.com/github/sul-dlss/suri-rails/maintainability)
+[![codecov](https://codecov.io/github/sul-dlss/suri-rails/graph/badge.svg?token=HPGVvrZghX)](https://codecov.io/github/sul-dlss/suri-rails)
 [![Docker image](https://images.microbadger.com/badges/image/suldlss/suri-rails.svg)](https://microbadger.com/images/suldlss/suri-rails "Get your own image badge on microbadger.com")
 [![OpenAPI Validator](http://validator.swagger.io/validator?url=https://raw.githubusercontent.com/sul-dlss/suri-rails/main/openapi.yml)](http://validator.swagger.io/validator/debug?url=https://raw.githubusercontent.com/sul-dlss/suri-rails/main/openapi.yml)
 
