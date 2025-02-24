@@ -43,6 +43,11 @@ module Suri
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 
+    # Add timestamps to all loggers (both Rack-based ones and e.g. Sidekiq's)
+    config.log_formatter = proc do |severity, datetime, _progname, msg|
+      "[#{datetime.to_fs(:iso8601)}] [#{severity}] #{msg}\n"
+    end
+
     # Stay out of business of validating gem-provided routes (e.g., OKComputer)
     accept_proc = proc { |request| request.path.include?('/identifiers') }
     config.middleware.use Committee::Middleware::RequestValidation, schema_path: 'openapi.yml',
