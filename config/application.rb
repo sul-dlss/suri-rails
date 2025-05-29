@@ -41,7 +41,7 @@ end
 module Suri
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.2
+    config.load_defaults 8.0
 
     # Add timestamps to all loggers (both Rack-based ones and e.g. Sidekiq's)
     config.log_formatter = proc do |severity, datetime, _progname, msg|
