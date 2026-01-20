@@ -79,10 +79,11 @@ GEM
     bcrypt_pbkdf (1.1.2)
     benchmark (0.5.0)
     bigdecimal (4.0.1)
-    bootsnap (1.20.1)
+    bootsnap (1.21.1)
       msgpack (~> 1.2)
     builder (3.3.0)
-    byebug (12.0.0)
+    byebug (13.0.0)
+      reline (>= 0.6.0)
     capistrano (3.20.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -177,7 +178,7 @@ GEM
     openapi_parser (2.3.1)
     ostruct (0.6.3)
     parallel (1.27.0)
-    parser (3.3.10.0)
+    parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
     pg (1.6.3)
@@ -186,7 +187,7 @@ GEM
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.7.0)
+    prism (1.8.0)
     psych (5.3.1)
       date
       stringio
@@ -233,7 +234,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.3.1)
-    rdoc (7.0.3)
+    rdoc (7.1.0)
       erb
       psych (>= 4.0.0)
       tsort
@@ -362,4 +363,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-  4.0.3
+  4.0.4
