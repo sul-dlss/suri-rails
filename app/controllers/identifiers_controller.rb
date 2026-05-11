@@ -3,7 +3,7 @@
 class IdentifiersController < ApplicationController
   # GET /identifiers/1
   def show
-    @identifier = Identifier.find_by!(identifier: params[:id])
+    @identifier = Identifier.find_by!(identifier: params.expect(:id))
     render json: @identifier
   rescue ActiveRecord::RecordNotFound
     # NOTE: 404s are not Honeybadger-worthy
