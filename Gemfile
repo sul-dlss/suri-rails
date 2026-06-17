@@ -12,6 +12,8 @@ gem 'puma' # Use Puma as the app server
 gem 'rails', '~> 8.0.0'
 
 group :development, :test do
+  # Security audit for known security defects in code (use config/brakeman.ignore to ignore issues)
+  gem 'brakeman', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec'
