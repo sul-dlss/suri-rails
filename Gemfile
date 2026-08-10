@@ -9,7 +9,7 @@ gem 'honeybadger'
 gem 'okcomputer'
 gem 'pg'
 gem 'puma' # Use Puma as the app server
-gem 'rails', '~> 8.0.0'
+gem 'rails', '~> 8.1.0'
 
 group :development, :test do
   # Security audit for known security defects in code (use config/brakeman.ignore to ignore issues)
