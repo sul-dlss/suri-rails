@@ -11,6 +11,8 @@ SURI has an [OpenAPI 3.0 spec](http://spec.openapis.org/oas/v3.0.2) that documen
 
 ## Installation
 
+Use Ruby 4.0.7 for development and testing.
+
 Clone the repository
 
     $ git clone git@github.com:sul-dlss/suri-rails.git
