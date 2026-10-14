@@ -1,4 +1,4 @@
-FROM ruby:3.4.1-bookworm
+FROM ruby:4.0.7-bookworm
 
 LABEL maintainer="Stanford Libraries Infrastructure Team <dlss-infrastructure-team@lists.stanford.edu>"
 
