@@ -38,7 +38,7 @@ class JSONAPIError < Committee::ValidationError
   end
 end
 
-module Suri
+module Suri # rubocop:disable Style/OneClassPerFile
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.1
