@@ -19,7 +19,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 1.23'
+  gem 'rubocop'
   gem 'rubocop-capybara'
   gem 'rubocop-factory_bot'
   gem 'rubocop-performance'
