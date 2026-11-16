@@ -125,7 +125,7 @@ GEM
     erubi (1.13.1)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    honeybadger (6.10.1)
+    honeybadger (6.10.2)
       logger
       ostruct
     i18n (1.15.2)
@@ -152,6 +152,7 @@ GEM
       net-smtp
     marcel (1.2.1)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (6.1.0)
       drb (~> 2.0)
       prism (>= 1.5, < 3)
@@ -163,7 +164,7 @@ GEM
       net-protocol
     net-protocol (0.4.0)
       timeout
-    net-scp (4.2.1)
+    net-scp (4.2.2)
       net-ssh (>= 2.6.5, < 9.0.0)
     net-sftp (4.1.1)
       net-ssh (>= 5.0.0, < 9.0.0)
@@ -173,6 +174,9 @@ GEM
       logger
       openssl (>= 3.2.0)
     nio4r (2.7.5)
+    nokogiri (1.19.7)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.19.7-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.19.7-arm64-darwin)
@@ -190,6 +194,7 @@ GEM
     parser (3.3.13.0)
       ast (~> 2.4.1)
       racc
+    pg (1.7.0)
     pg (1.7.0-aarch64-linux)
     pg (1.7.0-arm64-darwin)
     pg (1.7.0-x86_64-darwin)
@@ -197,8 +202,12 @@ GEM
     pp (0.6.4)
       prettyprint
     prettyprint (0.2.1)
-    prism (1.9.0)
-    puma (8.0.2)
+    prism (2.1.0)
+    prism (2.1.0-aarch64-linux-gnu)
+    prism (2.1.0-arm64-darwin)
+    prism (2.1.0-x86_64-darwin)
+    prism (2.1.0-x86_64-linux-gnu)
+    puma (8.1.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.8)
@@ -287,9 +296,9 @@ GEM
       rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.50.0)
+    rubocop-ast (1.51.0)
       parser (>= 3.3.7.2)
-      prism (~> 1.7)
+      prism (>= 1.7)
     rubocop-capybara (3.1.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.89)
@@ -374,4 +383,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-  4.0.24
+  4.1.0
